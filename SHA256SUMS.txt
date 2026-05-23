@@ -1,0 +1,3 @@
+a8ebd5c5a7b80aa7313b13ef474b7e1c47b07711b97f494dd403f85bdc8de5fb  Yours-android-arm64-v8a-1.11.0.apk
+7d16a3dd3f82c10d804e77da1b1d773661424b0b171d1927b28951baf5ff5278  Yours-android-armeabi-v7a-1.11.0.apk
+772e0ced875897c9d96ed9b8cca63cede8e175f7f4f7b060294ea614583ddc90  Yours-android-x86_64-1.11.0.apk

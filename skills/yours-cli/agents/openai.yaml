@@ -1,4 +1,0 @@
-interface:
-  display_name: "Yours CLI"
-  short_description: "Use the Yours command-line interface safely."
-  default_prompt: "Operate the Yours CLI with validation, dry-runs, inbox imports, exports, and read-before-write safety checks."

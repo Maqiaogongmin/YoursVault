@@ -1,0 +1,9 @@
+.DS_Store
+*.jks
+*.keystore
+key.properties
+artifacts/
+release-checklist.md
+github-upload-manifest.md
+website-copy.md
+android-signing-backup.md

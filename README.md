@@ -2,52 +2,81 @@
 
 **你的训练，你的数据。**
 
-有思是一个本地优先、数据自主的训练记录 App。前身是开源健身项目 [wger](https://github.com/wger-project/flutter)，经彻底重写后独立发展。设计灵感部分来自 [Obsidian](https://obsidian.md) 的 Vault——数据应当跟着人走，不应被锁在任何服务端。
+有思是一款本地优先的训练记录 App，当前处于 Beta 测试阶段。它帮助你记录训练计划、动作、组数、重量和完成情况，让训练数据尽量留在自己手里。
+
+## 当前仓库内容
+
+本仓库目前只用于发布和说明：
+
+- Android APK 下载说明与校验信息。
+- iPhone TestFlight 测试说明。
+- 版本更新日志。
+- 隐私政策。
+- 训练免责声明。
+- Yours Vault 数据协作方向说明。
+
+本仓库不包含有思 App 的完整源代码。等产品稳定后，再评估是否开放更多源码或开发文档。
+
+## 安装方式
+
+### iPhone
+
+iOS 版本将通过 TestFlight 分发。当前 TestFlight 外部测试仍在等待 Apple 后台状态修复，链接可用后会同步到有思官网和 GitHub Release。
+
+### Android
+
+Android 版本通过 APK 分发。请优先从 [GitHub Releases](https://github.com/Maqiaogongmin/YoursVault/releases) 或有思官网下载安装包，并核对 SHA-256 校验值。
+
+大多数近年 Android 手机建议选择：
+
+- `Yours-android-arm64-v8a-1.11.0.apk`
+
+较旧 Android 设备可尝试：
+
+- `Yours-android-armeabi-v7a-1.11.0.apk`
+
+模拟器或 x86_64 设备可使用：
+
+- `Yours-android-x86_64-1.11.0.apk`
 
 ## 核心功能
 
-- **训练计划**：自由编排训练日和动作组，训练计时模式下完整记录训练过程。
-- **动作库**：内置少量常用动作，支持自定义添加任何运动形式。
-- **Yours Vault**：所有数据以开放文件夹形式保存在本地（JSON 文件）。即使 App 不再维护，数据仍可被 AI 或任何工具读取。
-- **Agent 可读写**：App 保持开放性但不内嵌 AI。你可以让自己的 AI Agent 分析训练数据、生成新计划、批量修改记录——数据始终留在本地。
+- **训练计划**：创建和管理自己的训练安排。
+- **训练记录**：记录每组重量、次数和完成情况。
+- **自定义动作**：维护适合自己的动作库。
+- **本地优先**：默认不强制注册账号，训练数据默认保存在设备本地。
+- **数据迁移**：围绕本地数据进行导出、备份和恢复。
 
-```
-你在有思里训练 → SQLite 保存 → 导出到 Yours Vault → AI Agent 读取分析 → 生成新计划放入 inbox → 有思导入
-```
+## Yours Vault
 
-## 安装包
+Yours Vault 是有思面向长期数据保存和外部工具协作的开放文件夹设想。目标是让训练数据可以被用户审阅、备份、迁移，并在用户授权后交给自己的工具分析。
 
-| 文件 | 平台 | 架构 | 大小 |
-|------|------|------|------|
-| `Yours-arm64-v8a-1.11.0.apk` | Android | arm64-v8a | 21 MB |
-| `Yours-armeabi-v7a-1.11.0.apk` | Android | armeabi-v7a | 19 MB |
-| `Yours.ipa` | iOS | — | 8.3 MB |
+当前原则：
 
-> iOS 版本目前为未签名 IPA，需要通过自签方式安装。
+- App 数据库由 App 内部管理。
+- 外部工具不直接修改 App 内部数据库。
+- 外部工具通过可审阅文件协作。
+- 验证与试运行先于导入。
+- 数据始终由用户掌握，不依赖任何服务端。
 
-## Agent Skills
+## 隐私
 
-`skills/` 目录包含供 AI Agent 使用的技能文件，用于通过 Yours Vault 和 Yours CLI 与有思 App 交互：
+有思默认不要求账号。训练数据默认保存在设备本地。除非你主动导出、备份或分享，有思不会主动上传你的训练记录。
 
-| Skill | 用途 |
-|-------|------|
-| `yours-vault` | 理解和操作 Yours Vault 开放文件夹协议 |
-| `yours-cli` | 验证优先的 CLI 工作流（导出、检查、试运行、导入） |
-| `yours-plan-author` | 生成可读的训练计划及配套 `.plan.json` 导入文件 |
+完整说明见 `privacy-policy.md`。
 
-Agent 通过 Vault 的 `inbox/` 目录提交文件，经过验证后导入 App。Markdown 给人看，JSON 给 App 导入，各司其职。
+## 免责声明
 
-## 设计原则
+有思是训练记录工具，不提供医疗建议。请根据自身情况合理训练，如有伤病或身体不适，请咨询专业人士。
 
-- App 数据库归 App 内部管理，Agent 不直接操作
-- Agent 通过 Yours Vault 中的可审阅文件协作
-- 验证与试运行先于导入
-- 数据始终由用户掌握，不依赖任何服务端
+完整说明见 `disclaimer.md`。
 
 ## 致谢
 
-向 [wger](https://github.com/wger-project) 项目致敬，它是这一切的起点。感谢 [Obsidian](https://obsidian.md) 带来的 Vault 灵感——让数据跟随人走，而非受困于平台。
+有思的早期探索曾受到开源健身项目 wger 的启发。感谢 wger 项目长期积累的健身记录思路与开源实践；当前发布包不包含 wger 品牌、数据或工程副本。
 
----
+有思的数据自主理念也受到 Obsidian Vault 思路的启发：用户的数据应当尽可能可保存、可迁移、可被自己掌握。
 
-> 源码将在稳定后开源。如有想法或反馈，欢迎通过 GitHub 联系。
+## 反馈
+
+如果你在测试中遇到问题，欢迎通过 GitHub 或官网提供的联系方式反馈。
