@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yours Vault"
+  short_description: "Use the Yours Vault open data protocol safely."
+  default_prompt: "Work with Yours Vault folders through human-readable Markdown, machine-readable JSON, inbox imports, exports, reports, and validation-first workflows."
