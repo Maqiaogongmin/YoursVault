@@ -21,7 +21,7 @@
 
 ### iPhone
 
-iOS 版本已通过 TestFlight 外部测试审核，可通过公开链接加入：https://testflight.apple.com/join/CXrh1a1e
+iOS 版本已通过 TestFlight 外部测试审核，可通过公开链接加入：https://testflight.apple.com/join/CXrh1a1e。当前名额暂定 100 人，满额后请等待下一轮开放或名额释放。
 
 ### Android
 
@@ -38,6 +38,16 @@ Android 版本通过 APK 分发。请优先从 [GitHub Releases](https://github.
 模拟器或 x86_64 设备可使用：
 
 - `Yours-android-x86_64-1.11.0.apk`
+
+## Agent Skills
+
+本仓库提供一组给 AI Agent / Codex 使用的 Yours Vault skills，适合想用外部工具读取训练数据、生成训练计划或通过 `inbox/` 准备导入文件的技术用户。
+
+- `skills/yours-vault`：理解和使用 Yours Vault 开放文件夹协议。
+- `skills/yours-cli`：使用 Yours CLI 执行导出、检查、试运行和导入前验证。
+- `skills/yours-plan-author`：生成可读训练计划及配套 `.plan.json` 导入文件。
+
+这些 skills 只描述文件协作流程，不包含用户训练数据、密钥、安装包或本机私有路径。
 
 ## 核心功能
 
