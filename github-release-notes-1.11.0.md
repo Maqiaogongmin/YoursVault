@@ -10,7 +10,7 @@ Android 用户请根据设备架构选择 APK：
 - `Yours-android-armeabi-v7a-1.11.0.apk`：较旧 Android 设备可尝试这个版本。
 - `Yours-android-x86_64-1.11.0.apk`：主要用于模拟器或 x86_64 设备。
 
-iPhone 用户请通过 TestFlight 公开链接安装：https://testflight.apple.com/join/CXrh1a1e。当前名额暂定 100 人，满额后请等待下一轮开放或名额释放。
+iPhone 用户请通过 TestFlight 公开链接安装：https://testflight.apple.com/join/CXrh1a1e。
 
 ## 本版说明
 
