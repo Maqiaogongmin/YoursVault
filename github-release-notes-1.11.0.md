@@ -30,6 +30,10 @@ iPhone 用户请通过 TestFlight 公开链接安装：https://testflight.apple.
 - 如果你安装过旧测试包，且签名不同，可能需要先卸载旧版本再安装新版。
 - 卸载 App 会删除本机训练数据，请先确认是否需要备份。
 
+## Agent Skills
+
+本仓库已补充 `skills/` 目录，包含 `yours-vault`、`yours-cli`、`yours-plan-author` 三个公开 skills，供技术用户把 Yours Vault 接给自己的 AI Agent。skills 目录只包含说明文件，不包含用户训练数据、密钥或安装包。
+
 ## 重要边界
 
 本仓库当前只发布安装包和说明文件，不开放完整 App 源代码。
