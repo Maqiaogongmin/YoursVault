@@ -21,7 +21,7 @@
 
 ### iPhone
 
-iOS 版本已通过 TestFlight 外部测试审核，可通过公开链接加入：https://testflight.apple.com/join/CXrh1a1e。当前名额暂定 100 人，满额后请等待下一轮开放或名额释放。
+iOS 版本已通过 TestFlight 外部测试审核，可通过公开链接加入：https://testflight.apple.com/join/CXrh1a1e
 
 ### Android
 
