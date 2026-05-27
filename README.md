@@ -21,7 +21,7 @@
 
 ### iPhone
 
-iOS 版本将通过 TestFlight 分发。当前 TestFlight 外部测试仍在等待 Apple 后台状态修复，链接可用后会同步到有思官网和 GitHub Release。
+iOS 版本已通过 TestFlight 外部测试审核，可通过公开链接加入：https://testflight.apple.com/join/CXrh1a1e。当前名额暂定 100 人，满额后请等待下一轮开放或名额释放。
 
 ### Android
 
