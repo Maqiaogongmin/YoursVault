@@ -9,6 +9,8 @@ description: Work with the Yours fitness app open Vault protocol. Use when Codex
 
 Yours Vault is the open file interface for the Yours fitness app. Treat the app database as internal state; use Vault files for agent collaboration, imports, exports, reports, and reviewable data exchange.
 
+Yours Vault is not the self-hosted sync server. Vault files are meant to be inspected by people; server sync uses protocol v2 events and backup snapshots.
+
 Read `references/protocol.md` when you need the folder layout, JSON formats, or naming conventions.
 
 ## Core Rules
@@ -19,6 +21,8 @@ Read `references/protocol.md` when you need the folder layout, JSON formats, or 
 - Validate import files before telling the user they are ready.
 - Do not edit SQLite, Drift files, app containers, or server databases unless the user explicitly asks for a low-level repair.
 - Do not claim that iCloud sync, app import, or database writes happened unless you actually verified them.
+- Preserve user-created plan names, exercise names, and notes exactly as written.
+- Use current Yours product semantics: active/archived plans, manual week completion, and `standard` / `free` record modes.
 
 ## Workflow
 
@@ -41,12 +45,14 @@ When the user asks for a plan that Yours can import:
 4. Put the `.plan.json` file in `inbox/`.
 5. Validate the file. If validation cannot be run, say so clearly.
 
+For actions that do not naturally use sets, reps, weight, and rest, set `recordMode` to `free` and put duration, distance, pace, sport rules, or coaching details in `note`. Do not invent unsupported fields.
+
 ## Training Analysis
 
 When the user asks to analyze training:
 
 1. Read `logs/**/*.workout.json`, `plans/*.plan.json`, and relevant exercise files.
-2. Summarize frequency, volume, progression, missed sessions, and likely bottlenecks.
+2. Summarize frequency, standard training volume, free-record activity time, progression, missed sessions, and likely bottlenecks.
 3. Write reports as Markdown in `reports/` only when the user asks for a saved report.
 4. Keep coaching claims modest; do not present medical advice.
 

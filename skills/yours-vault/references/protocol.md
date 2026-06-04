@@ -1,6 +1,6 @@
 # Yours Vault Protocol
 
-Yours Vault is an open folder protocol for agent collaboration with the Yours fitness app.
+Yours Vault is an open folder protocol for agent collaboration with the Yours fitness app. It is not the app database and it is not the self-hosted sync server.
 
 ## Principle
 
@@ -45,22 +45,28 @@ Use `.plan.json` for importable plans.
 {
   "format": "yours-plan",
   "formatVersion": 1,
-  "name": "Two Month Strength Plan",
+  "name": "Two Month Mixed Plan",
   "weeks": [
     {
       "week": 1,
       "days": [
         {
-          "day": 1,
-          "name": "Push A",
+          "day": "D1",
+          "name": "Push And Run",
           "actions": [
             {
-              "exercise": "Barbell Bench Press",
+              "name": "Bench Press",
+              "recordMode": "standard",
               "sets": 4,
               "reps": "6-8",
               "weight": 60,
               "restSeconds": 120,
               "note": "Keep 1-2 reps in reserve."
+            },
+            {
+              "name": "Easy Run",
+              "recordMode": "free",
+              "note": "20 minutes at conversational pace."
             }
           ]
         }
@@ -78,16 +84,29 @@ Required in practice:
 - `weeks`
 - `days`
 - `actions`
-- `exercise`
-- `sets`
-- `reps`
+- action `name`
+
+Standard actions should include `sets` and `reps`. Free actions should include useful context in `note`.
 
 Optional fields:
 
+- `recordMode`
 - `weight`
 - `restSeconds`
 - `note`
 - future extension fields added by the app
+
+Missing `recordMode` is treated as `standard`.
+
+## Data Semantics
+
+- Plans may be active or archived.
+- A training week can be manually marked complete; this does not prevent repeating the week or plan.
+- Plan actions support `recordMode`:
+  - `standard`: strength-style set logging.
+  - `free`: activity-style logging for running, basketball, stretching, mobility, and similar training.
+- User-created names, notes, and remarks should remain unchanged.
+- Built-in exercise display names may be localized by the app. Do not rely on localized display text as a permanent cross-device identity.
 
 ## Exercise JSON
 
@@ -148,6 +167,10 @@ YYYY-MM-DD-report-slug.md
 ```
 
 Keep slugs lowercase ASCII when possible. User-facing content inside files may be in the user's language.
+
+## Sync Boundary
+
+Yours Vault is for files a user can inspect and import. Self-hosted server sync is a separate service using `protocolVersion: 2` and `identityMode: syncId`.
 
 ## Validation Expectations
 

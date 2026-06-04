@@ -9,6 +9,8 @@ description: Use the Yours command-line interface as the safety layer for the Yo
 
 Use the Yours CLI to validate and move data between Yours Vault files and the app. Prefer CLI validation and dry-runs over direct database writes.
 
+Do not use the Vault CLI as a substitute for self-hosted server sync. Server sync is configured inside the app with a server URL and API key.
+
 Read `references/commands.md` for command patterns and expected behavior.
 
 ## Command Name
@@ -67,6 +69,15 @@ If validation reports missing exercises:
 - Show the missing exercise names.
 - Offer to create `.exercise.json` files in `inbox/`.
 - Validate exercise files before importing them.
+
+## Record Modes
+
+When validating or preparing plan files, preserve `recordMode`:
+
+- `standard`: sets, reps, weight, rest, and note.
+- `free`: one activity item with duration handled by the app timer and details in note.
+
+Missing `recordMode` should be treated as `standard` for compatibility.
 
 ## Do Not
 

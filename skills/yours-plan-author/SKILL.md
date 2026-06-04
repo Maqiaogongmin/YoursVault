@@ -9,6 +9,8 @@ description: Create training plans for the Yours fitness app. Use when Codex nee
 
 Create two deliverables for every Yours training plan: a Markdown version for the user and a `.plan.json` version for the app. Use Yours Vault for delivery and Yours CLI for validation when available.
 
+Yours supports both strength-style standard records and activity-style free records. Use both when a plan mixes lifting, cardio, sports, stretching, or mobility.
+
 Read `references/plan-schema.md` when you need exact JSON examples.
 
 ## Intake
@@ -36,10 +38,13 @@ When working inside a Yours Vault, put the `.plan.json` file in `inbox/`. Put th
 
 - Use `format: "yours-plan"` and `formatVersion: 1`.
 - Use stable exercise names that match the user's Yours exercise library when possible.
+- Use `recordMode: "standard"` for set-based strength work.
+- Use `recordMode: "free"` for running, basketball, cycling, stretching, mobility, or other work that should be recorded as one activity with duration and notes.
 - `sets` must be numeric.
 - `reps` may be a number or range string such as `"6-8"`.
 - Put coaching notes, RIR, tempo, substitutions, and safety cues in `note` unless the schema explicitly supports a separate field.
 - Use `restSeconds` for rest time when known.
+- Do not invent unsupported fields such as `distance`, `pace`, `heartRate`, or `score` in v1 plan JSON; place those details in `note`.
 
 ## Exercise Matching
 
@@ -50,6 +55,8 @@ Prefer this order:
 3. Common names, then report that validation may find missing exercises.
 
 Do not silently invent obscure exercise names. If a plan needs new movements, create separate `.exercise.json` files or ask the user whether to add them.
+
+Built-in exercises may be displayed in the current app language, but user-created exercise names and notes should remain as written.
 
 ## Validation
 

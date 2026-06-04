@@ -1,6 +1,6 @@
 # Yours CLI Command Reference
 
-Use these commands as stable patterns. If the installed CLI differs, adapt the command name while preserving the workflow.
+Use these commands as stable patterns. If the installed CLI differs, adapt the command name while preserving the validation-first workflow.
 
 ## Doctor
 
@@ -49,6 +49,19 @@ yours --json plan list
 ```
 
 Use exercise lookup before generating training plans when exact names matter.
+
+## Record Modes
+
+Plan JSON may use:
+
+- `recordMode: "standard"` for set-based strength work.
+- `recordMode: "free"` for activity-style work recorded with duration and notes.
+
+Missing `recordMode` should be treated as `standard`.
+
+## Server Sync
+
+Do not use the Vault CLI as a replacement for server sync. Server sync is configured inside the Yours app with a server URL and API key.
 
 ## Legacy or Development Builds
 

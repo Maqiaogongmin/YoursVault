@@ -1,6 +1,6 @@
-# Yours Plan Schema
+# Yours Plan Import Schema
 
-Use this as the first public schema for agent-authored Yours plans.
+Use this as the public import shape for agent-authored training plans. Keep files human-reviewable and validate them before import.
 
 ## Minimal Plan
 
@@ -8,19 +8,28 @@ Use this as the first public schema for agent-authored Yours plans.
 {
   "format": "yours-plan",
   "formatVersion": 1,
-  "name": "Beginner Full Body Plan",
+  "name": "Example Plan",
   "weeks": [
     {
       "week": 1,
       "days": [
         {
-          "day": 1,
-          "name": "Full Body A",
+          "day": "D1",
+          "name": "Full Body",
           "actions": [
             {
-              "exercise": "Squat",
+              "name": "Bench Press",
+              "recordMode": "standard",
               "sets": 3,
-              "reps": "8-10"
+              "reps": "6-8",
+              "weight": "",
+              "restSeconds": 120,
+              "note": "Leave 1-2 reps in reserve."
+            },
+            {
+              "name": "Easy Run",
+              "recordMode": "free",
+              "note": "20-30 minutes at conversational pace."
             }
           ]
         }
@@ -32,9 +41,12 @@ Use this as the first public schema for agent-authored Yours plans.
 
 ## Recommended Action Fields
 
+Standard record:
+
 ```json
 {
-  "exercise": "Barbell Bench Press",
+  "name": "Barbell Bench Press",
+  "recordMode": "standard",
   "sets": 4,
   "reps": "6-8",
   "weight": 60,
@@ -43,14 +55,35 @@ Use this as the first public schema for agent-authored Yours plans.
 }
 ```
 
-## Field Guidance
+Free record:
 
-- `exercise`: Prefer exact library names.
-- `sets`: Use a number, not text.
-- `reps`: Use a number or a range string.
-- `weight`: Use a number when a target load is known. Omit when unknown.
-- `restSeconds`: Use an integer. Examples: 60, 90, 120, 180.
-- `note`: Store RIR, tempo, substitutions, and coaching notes here unless the app schema adds dedicated fields.
+```json
+{
+  "name": "Basketball",
+  "recordMode": "free",
+  "note": "30 minutes. Record score or intensity here if useful."
+}
+```
+
+## Fields
+
+- `format`: must be `yours-plan`.
+- `formatVersion`: currently `1`.
+- `name`: user-visible plan name.
+- `weeks[].week`: week number.
+- `weeks[].days[].day`: short day label such as `D1`.
+- `actions[].name`: exercise name. Prefer names already present in the user's exercise library.
+- `actions[].recordMode`: `standard` or `free`. Missing values are treated as `standard`.
+- `sets`, `reps`, `weight`, `restSeconds`: standard-record fields.
+- `note`: optional user-visible note. Use this for RIR, tempo, duration goals, substitutions, distance, pace, score, or safety cues.
+
+## Standard vs Free
+
+Use `standard` for strength training that naturally uses sets, reps, weight, and rest.
+
+Use `free` for cardio, sports, stretching, mobility, outdoor activity, or anything that is better recorded as one activity with duration and notes.
+
+Do not invent distance, pace, heart-rate, or score fields in v1 import files. Put those details in `note`.
 
 ## Markdown Companion
 
@@ -69,5 +102,6 @@ The Markdown version should include:
 - `format` is `yours-plan`.
 - `formatVersion` is supported.
 - Every day has actions.
-- Every action has `exercise`, `sets`, and `reps`.
+- Standard actions have `sets` and `reps`.
+- Free actions have a clear `note` when the intended duration or activity detail matters.
 - Exercise names were checked against the user's library when possible.
