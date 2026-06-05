@@ -2,7 +2,7 @@
 
 ## 当前开源边界
 
-有思 App 当前仍处于 Beta 阶段，暂不开放完整源代码。
+有思 App 已正式上架 App Store，当前暂不开放完整源代码。
 
 GitHub 仓库只用于公开发布以下内容：
 
@@ -11,7 +11,7 @@ GitHub 仓库只用于公开发布以下内容：
 - 安装说明。
 - 隐私政策。
 - 训练免责声明。
-- 官网或 TestFlight 跳转说明。
+- 官网或 App Store 跳转说明。
 
 不要上传 Flutter / iOS / Android 工程源码、签名文件、构建脚本中的本地配置、开发者个人数据、未清理历史文件。
 
@@ -51,4 +51,4 @@ Android：
 iOS：
 
 - TestFlight 不直接对外提供 IPA 下载。
-- 通过 App Store Connect / TestFlight 分发。
+- 正式版本通过 App Store 分发，内部测试版本可继续使用 TestFlight。

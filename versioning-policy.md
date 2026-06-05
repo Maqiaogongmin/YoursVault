@@ -20,7 +20,7 @@ iOS 和 Android 对用户展示的版本号应保持一致。
 
 - iOS：`CFBundleShortVersionString = 1.11.0`
 - Android：`versionName = 1.11.0`
-- Flutter：`pubspec.yaml` 中当前使用 `version: 1.11.0+11101`
+- Flutter：`pubspec.yaml` 中当前使用 `version: 1.11.0+11107`
 
 ## Android versionCode
 
@@ -35,7 +35,7 @@ Android 的 `versionCode` 必须每次递增。建议规则：
 
 - `1.11.0+11100`
 - `1.11.0+11101`
-- `1.11.0+11102`
+- `1.11.0+11107`
 
 ## 发布规则
 

@@ -1,6 +1,6 @@
-# 有思 Yours 1.11.0 Beta
+# 有思 Yours 1.11.0
 
-这是有思 Beta 的小范围测试版本。
+这是有思首次通过 App Store 和 Android APK 面向用户公开发布的版本。
 
 ## 下载
 
@@ -10,11 +10,11 @@ Android 用户请根据设备架构选择 APK：
 - `Yours-android-armeabi-v7a-1.11.0.apk`：较旧 Android 设备可尝试这个版本。
 - `Yours-android-x86_64-1.11.0.apk`：主要用于模拟器或 x86_64 设备。
 
-iPhone 用户请通过 TestFlight 公开链接安装：https://testflight.apple.com/join/CXrh1a1e。
+iPhone 用户请从 App Store 下载：https://apps.apple.com/cn/app/%E6%9C%89%E6%80%9D/id6772104994。
 
 ## 本版说明
 
-- 首次公开 Beta 测试版本。
+- 首次公开发布版本。
 - 默认提供干净的新用户状态。
 - 内置简体中文动作内容。
 - Android 本地恢复支持从系统 Documents/有思/backups 目录选择 iOS 备份包。

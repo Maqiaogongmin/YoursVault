@@ -2,11 +2,31 @@
 
 This folder contains Codex / AI agent skills for working with Yours through reviewable files instead of private app databases.
 
+## What You Can Do
+
+After installing these skills, an agent can:
+
+- Turn a user's goals, schedule, equipment, and constraints into a readable training plan.
+- Create a matching `.plan.json` file for `Yours Vault/inbox/`.
+- Validate plan and exercise files before import.
+- Inspect exported workout logs and summarize frequency, progress, and likely bottlenecks.
+- Prepare the next training cycle from the user's accumulated training history.
+
 ## Skills
 
 - `yours-vault`: Understand the Yours Vault folder protocol and prepare import files.
 - `yours-cli`: Use the Yours CLI as a validation and dry-run safety layer.
 - `yours-plan-author`: Turn training ideas into readable plans and importable `.plan.json` files.
+
+## Suggested Install
+
+Copy the folders under `skills/` into the skills directory used by your agent. For Codex-style skills, that is commonly:
+
+```bash
+~/.codex/skills/
+```
+
+Use your agent's own installation process if it differs.
 
 ## Current Yours Concepts
 
