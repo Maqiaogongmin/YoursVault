@@ -44,9 +44,9 @@ GitHub 仓库只用于公开发布以下内容：
 
 Android：
 
-- `Yours-android-arm64-v8a-1.11.0.apk`
-- `Yours-android-armeabi-v7a-1.11.0.apk`
-- `Yours-android-x86_64-1.11.0.apk`
+- `Yours-android-arm64-v8a-<version>.apk`
+- `Yours-android-armeabi-v7a-<version>.apk`
+- `Yours-android-x86_64-<version>.apk`
 
 iOS：
 
