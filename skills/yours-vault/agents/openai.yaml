@@ -1,4 +1,4 @@
 interface:
-  display_name: "Yours Vault"
-  short_description: "Use the Yours Vault open data protocol safely."
-  default_prompt: "Work with Yours Vault folders through human-readable Markdown, machine-readable JSON, inbox imports, exports, reports, and validation-first workflows."
+  display_name: "Yours Vault Reference"
+  short_description: "Reference for the Vault protocol; prefer Yours Agent."
+  default_prompt: "For normal work use $yours-agent. Use this reference only for Yours Vault folder protocol details."

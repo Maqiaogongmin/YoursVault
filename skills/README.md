@@ -2,6 +2,8 @@
 
 This folder contains Codex / AI agent skills for working with Yours through reviewable files instead of private app databases.
 
+Use `yours-agent` as the main entry skill for normal work. It gives agents one clear workflow for Vault reading, plan creation, existing-plan updates, custom exercises, inbox files, and validation.
+
 ## What You Can Do
 
 After installing these skills, an agent can:
@@ -14,9 +16,20 @@ After installing these skills, an agent can:
 
 ## Skills
 
-- `yours-vault`: Understand the Yours Vault folder protocol and prepare import files.
-- `yours-cli`: Use the Yours CLI as a validation and dry-run safety layer.
-- `yours-plan-author`: Turn training ideas into readable plans and importable `.plan.json` files.
+- `yours-agent`: Main entry for all Yours Vault, plan, log, exercise, inbox, and validation workflows.
+- `yours-vault`: Reference / compatibility skill for the Vault folder protocol.
+- `yours-plan-author`: Reference / compatibility skill for plan JSON details.
+- `yours-cli`: Reference / compatibility skill for CLI validation when a CLI is available.
+
+## What Users Should Say
+
+Tell agents:
+
+```text
+Use $yours-agent to work with my Yours Vault.
+```
+
+Users normally do not need to choose among `yours-vault`, `yours-plan-author`, and `yours-cli`. Those skills remain for older agent setups and as focused references.
 
 ## Suggested Install
 
@@ -32,6 +45,8 @@ Use your agent's own installation process if it differs.
 
 - Yours is local-first. The app database is internal state and should not be edited directly.
 - Yours Vault is a file exchange format for exports, imports, reports, and agent collaboration.
+- Agent-authored changes should be written to `inbox/`; exported `plans/`, `logs/`, and `exercises/` are reference data.
+- The CLI is optional. If unavailable, agents should do manual static checks and let the app inbox importer be the final authority.
 - Self-hosted server sync is separate from Vault. It uses sync events and backup snapshots for cross-device sync.
 - Training plans can be active or archived. Archive status does not delete plans or history.
 - Training weeks can be manually marked complete, but a plan can always be reused.

@@ -1,9 +1,11 @@
 ---
 name: yours-plan-author
-description: Create training plans for the Yours fitness app. Use when Codex needs to turn a user's goals, schedule, equipment, or natural-language program into both a readable Markdown plan and a machine-readable `.plan.json` file for Yours Vault inbox import.
+description: Compatibility/reference skill for Yours plan JSON and readable plan writing. Prefer `yours-agent` as the main entry for plan creation, existing-plan updates, missing exercises, and validation.
 ---
 
 # Yours Plan Author
+
+Prefer `yours-agent` for normal Yours plan tasks. This skill remains as a focused reference for plan-writing and `.plan.json` details, especially for older agent setups that already call `yours-plan-author`.
 
 ## Overview
 

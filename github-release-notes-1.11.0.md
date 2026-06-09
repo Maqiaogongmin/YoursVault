@@ -32,7 +32,7 @@ iPhone 用户请从 App Store 下载：https://apps.apple.com/cn/app/%E6%9C%89%E
 
 ## Agent Skills
 
-本仓库已补充 `skills/` 目录，包含 `yours-vault`、`yours-cli`、`yours-plan-author` 三个公开 skills，供技术用户把 Yours Vault 接给自己的 AI Agent。skills 目录只包含说明文件，不包含用户训练数据、密钥或安装包。
+本仓库已补充 `skills/` 目录，供技术用户把 Yours Vault 接给自己的 AI Agent。后续 skill 结构推荐使用 `yours-agent` 作为主入口，`yours-vault`、`yours-plan-author`、`yours-cli` 作为兼容入口和细节参考。skills 目录只包含说明文件，不包含用户训练数据、密钥或安装包。
 
 ## 重要边界
 

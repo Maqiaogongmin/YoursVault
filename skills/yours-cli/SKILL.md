@@ -1,9 +1,11 @@
 ---
 name: yours-cli
-description: Use the Yours command-line interface as the safety layer for the Yours fitness app. Use when Codex needs to validate Vault import files, inspect or export a Yours Vault, list exercises or plans, dry-run imports, import inbox files, or avoid direct database edits while preparing agent-generated data for Yours.
+description: Compatibility/reference skill for Yours CLI validation. Prefer `yours-agent` as the main entry; use this only when a CLI is actually available or when command details are needed.
 ---
 
 # Yours CLI
+
+Prefer `yours-agent` for normal Yours tasks. This skill remains as a focused reference for CLI validation when a CLI exists. The CLI is optional; mobile agents must not stop just because it is unavailable.
 
 ## Overview
 

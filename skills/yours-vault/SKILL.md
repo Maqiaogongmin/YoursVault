@@ -1,9 +1,11 @@
 ---
 name: yours-vault
-description: Work with the Yours fitness app open Vault protocol. Use when Codex needs to create or inspect a Yours Vault folder, generate importable training plan JSON, place files in inbox, analyze exported workout logs, maintain custom exercise files, or help an agent connect to Yours without editing the app database directly.
+description: Compatibility/reference skill for the Yours Vault protocol. Prefer `yours-agent` as the main entry for normal Yours tasks; use this only for focused Vault folder protocol details.
 ---
 
 # Yours Vault
+
+Prefer `yours-agent` for normal Yours tasks. This skill remains as a focused reference for the Vault folder protocol and for older agent setups that already call `yours-vault`.
 
 ## Overview
 

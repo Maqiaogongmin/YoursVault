@@ -1,4 +1,4 @@
 interface:
-  display_name: "Yours Plan Author"
-  short_description: "Create training plans for Yours."
-  default_prompt: "Create readable Markdown training plans and matching Yours .plan.json files that can be validated and imported through Yours Vault."
+  display_name: "Yours Plan Author Reference"
+  short_description: "Reference for plan JSON and plan writing; prefer Yours Agent."
+  default_prompt: "For normal work use $yours-agent. Use this reference only for detailed Yours plan writing or .plan.json rules."

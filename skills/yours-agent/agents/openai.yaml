@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yours Agent"
+  short_description: "One entry for Yours Vault, plans, logs, and inbox."
+  default_prompt: "Use $yours-agent to analyze or update my Yours Vault data and prepare safe inbox import files."
