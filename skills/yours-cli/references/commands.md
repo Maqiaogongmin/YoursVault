@@ -2,6 +2,8 @@
 
 Use these commands as stable patterns. If the installed CLI differs, adapt the command name while preserving the validation-first workflow.
 
+The CLI is optional. Some mobile agent environments will not have it installed. In that case, do manual static validation and leave final import validation to the Yours app inbox importer.
+
 ## Doctor
 
 ```bash
@@ -66,3 +68,5 @@ Do not use the Vault CLI as a replacement for server sync. Server sync is config
 ## Legacy or Development Builds
 
 Some development builds may still expose older command names. Do not teach new users those names in public documentation. If a user has a local development build, adapt locally and explain that the public workflow is still the Yours CLI workflow.
+
+Local app repository checkouts may expose `tool/yours_cli/yours_cli.py` or `yours-cli`. Do not tell mobile users those binaries must exist.

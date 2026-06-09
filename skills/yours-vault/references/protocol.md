@@ -45,6 +45,8 @@ Use `.plan.json` for importable plans.
 {
   "format": "yours-plan",
   "formatVersion": 1,
+  "action": "upsert",
+  "matchName": "Existing Plan Name",
   "name": "Two Month Mixed Plan",
   "weeks": [
     {
@@ -55,7 +57,7 @@ Use `.plan.json` for importable plans.
           "name": "Push And Run",
           "actions": [
             {
-              "name": "Bench Press",
+              "exercise": "Bench Press",
               "recordMode": "standard",
               "sets": 4,
               "reps": "6-8",
@@ -64,7 +66,7 @@ Use `.plan.json` for importable plans.
               "note": "Keep 1-2 reps in reserve."
             },
             {
-              "name": "Easy Run",
+              "exercise": "Easy Run",
               "recordMode": "free",
               "note": "20 minutes at conversational pace."
             }
@@ -80,16 +82,19 @@ Required in practice:
 
 - `format`
 - `formatVersion`
+- `action`: optional, `create`, `update`, or `upsert`; missing means `upsert`.
+- `matchName`: optional plan name to update. Prefer `syncId` when available.
 - `name`
 - `weeks`
 - `days`
 - `actions`
-- action `name`
+- action `exercise`; legacy `name` is accepted by the app for compatibility.
 
 Standard actions should include `sets` and `reps`. Free actions should include useful context in `note`.
 
 Optional fields:
 
+- `syncId`
 - `recordMode`
 - `weight`
 - `restSeconds`
@@ -97,6 +102,8 @@ Optional fields:
 - future extension fields added by the app
 
 Missing `recordMode` is treated as `standard`.
+
+For new plans, omit `matchName` unless you intentionally want to update a matching existing plan. For existing plans, use `action: "upsert"` with `matchName` or `syncId`; the app should preserve workout logs and update only the plan structure.
 
 ## Data Semantics
 
@@ -182,4 +189,4 @@ Validation should check:
 - Exercises referenced by a plan exist or are reported as missing.
 - Import would not overwrite or hide existing data unless the user asked for replacement.
 
-If validation is unavailable, inspect the JSON manually and say that CLI validation was not run.
+If validation is unavailable, inspect the JSON manually, compare exercise names with `exercises/custom-exercises.json`, create needed `.exercise.json` files, and say that CLI dry-run validation was not run.

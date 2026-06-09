@@ -7,7 +7,7 @@ description: Use the Yours command-line interface as the safety layer for the Yo
 
 ## Overview
 
-Use the Yours CLI to validate and move data between Yours Vault files and the app. Prefer CLI validation and dry-runs over direct database writes.
+Use the Yours CLI to validate and move data between Yours Vault files and the app when the CLI is available. Prefer CLI validation and dry-runs over direct database writes, but remember that mobile agents may not have a CLI installed.
 
 Do not use the Vault CLI as a substitute for self-hosted server sync. Server sync is configured inside the app with a server URL and API key.
 
@@ -21,7 +21,7 @@ Use the public `yours` command in docs and generated instructions:
 yours --json doctor
 ```
 
-If the installed app version uses a different binary name, follow the user's installed CLI documentation, but keep the same validation-first workflow.
+If the installed app version uses a different binary name, follow the user's installed CLI documentation, but keep the same validation-first workflow. Local development checkouts may still expose `tool/yours_cli/yours_cli.py` or `yours-cli`; do not assume those names exist on a user's phone.
 
 ## Safe Order
 
@@ -32,6 +32,8 @@ For any write:
 3. Run a dry-run import.
 4. Only run the real import when validation and dry-run pass.
 5. Report the command result and any files changed.
+
+If the CLI is unavailable, do not abandon the task. Fall back to manual static checks: parse JSON, check `.plan.json` / `.exercise.json` extensions, compare plan exercise names with `exercises/custom-exercises.json`, prepare missing `.exercise.json` files, and tell the user that final validation must happen in the Yours app inbox import.
 
 ## Common Workflows
 
@@ -67,7 +69,7 @@ If validation reports missing exercises:
 
 - Stop before import.
 - Show the missing exercise names.
-- Offer to create `.exercise.json` files in `inbox/`.
+- Create or offer to create `.exercise.json` files in `inbox/`, depending on the user's request.
 - Validate exercise files before importing them.
 
 ## Record Modes

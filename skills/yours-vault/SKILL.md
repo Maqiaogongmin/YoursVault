@@ -17,8 +17,8 @@ Read `references/protocol.md` when you need the folder layout, JSON formats, or 
 
 - Write Markdown for people to read.
 - Write JSON for Yours to import.
-- Put agent-authored imports in `inbox/`; do not modify exported plans or logs in place.
-- Validate import files before telling the user they are ready.
+- Treat `plans/` and `logs/` as read-only exports. Put every agent-authored change in `inbox/`; do not modify exported plans or logs in place.
+- Validate import files before telling the user they are ready. If the Yours CLI is unavailable, perform the manual checks below and say that App import remains the final validation step.
 - Do not edit SQLite, Drift files, app containers, or server databases unless the user explicitly asks for a low-level repair.
 - Do not claim that iCloud sync, app import, or database writes happened unless you actually verified them.
 - Preserve user-created plan names, exercise names, and notes exactly as written.
@@ -32,8 +32,9 @@ Read `references/protocol.md` when you need the folder layout, JSON formats, or 
    - `.plan.json` for training plans.
    - `.exercise.json` for custom exercises.
 4. Run validation through the Yours CLI when available.
-5. If validation finds missing exercises, stop and report them, or create separate `.exercise.json` files if the user asks.
-6. Tell the user exactly what files were prepared and whether they still need to open Yours to import them.
+5. If the CLI is unavailable, parse JSON manually, check file extensions, check exercise names against `exercises/custom-exercises.json`, and report that dry-run validation was not run.
+6. If validation finds missing exercises, create separate `.exercise.json` files when the user wants the plan to import cleanly.
+7. Tell the user exactly what files were prepared and whether they still need to open Yours to import them.
 
 ## Training Plan Imports
 
@@ -47,6 +48,8 @@ When the user asks for a plan that Yours can import:
 
 For actions that do not naturally use sets, reps, weight, and rest, set `recordMode` to `free` and put duration, distance, pace, sport rules, or coaching details in `note`. Do not invent unsupported fields.
 
+To update an existing plan, write `action: "upsert"` and include either `syncId` or `matchName`. The app should preserve workout history and update only the plan structure.
+
 ## Training Analysis
 
 When the user asks to analyze training:
@@ -58,7 +61,7 @@ When the user asks to analyze training:
 
 ## Custom Exercises
 
-Use `.exercise.json` files for custom exercise additions or edits. Include `matchName` when renaming an existing exercise. If an exercise is missing from a plan, create exercise files separately instead of embedding undefined metadata inside the plan.
+Use `.exercise.json` files for custom exercise additions or edits. Include `matchName` when renaming an existing exercise. If an exercise is missing from a plan, create exercise files separately instead of embedding undefined metadata inside the plan or claiming the plan is ready without the action definition.
 
 ## Safety Checks
 
@@ -68,4 +71,5 @@ Before reporting success, check:
 - Generated JSON parses successfully.
 - Import files are in `inbox/`, not mixed into exported folders.
 - Validation ran or the reason it could not run is stated.
+- Plan actions use names present in `exercises/custom-exercises.json`, or matching `.exercise.json` files exist in `inbox/`.
 - No private local paths, secrets, account names, or unrelated app data were copied into generated files.

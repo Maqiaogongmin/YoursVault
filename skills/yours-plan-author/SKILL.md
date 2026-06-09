@@ -7,7 +7,7 @@ description: Create training plans for the Yours fitness app. Use when Codex nee
 
 ## Overview
 
-Create two deliverables for every Yours training plan: a Markdown version for the user and a `.plan.json` version for the app. Use Yours Vault for delivery and Yours CLI for validation when available.
+Create two deliverables for every Yours training plan: a Markdown version for the user and a `.plan.json` version for the app. Use Yours Vault for delivery and Yours CLI for validation when available. The CLI is optional; the app inbox importer is the final authority.
 
 Yours supports both strength-style standard records and activity-style free records. Use both when a plan mixes lifting, cardio, sports, stretching, or mobility.
 
@@ -37,6 +37,7 @@ When working inside a Yours Vault, put the `.plan.json` file in `inbox/`. Put th
 ## JSON Rules
 
 - Use `format: "yours-plan"` and `formatVersion: 1`.
+- Prefer `actions[].exercise` for exercise names. The app also accepts legacy `actions[].name`.
 - Use stable exercise names that match the user's Yours exercise library when possible.
 - Use `recordMode: "standard"` for set-based strength work.
 - Use `recordMode: "free"` for running, basketball, cycling, stretching, mobility, or other work that should be recorded as one activity with duration and notes.
@@ -54,7 +55,7 @@ Prefer this order:
 2. User-provided names.
 3. Common names, then report that validation may find missing exercises.
 
-Do not silently invent obscure exercise names. If a plan needs new movements, create separate `.exercise.json` files or ask the user whether to add them.
+Do not silently invent obscure exercise names. If a plan needs new movements, create separate `.exercise.json` files in `inbox/` so the app can import exercises before the plan.
 
 Built-in exercises may be displayed in the current app language, but user-created exercise names and notes should remain as written.
 
@@ -66,6 +67,16 @@ After creating JSON:
 2. Validate through the Yours CLI when available.
 3. Run a dry-run import before a real import.
 4. If validation fails, fix format issues or report missing exercises; do not import.
+
+If the CLI is not installed or not available on the device, do not stop at "CLI missing". Instead:
+
+1. Confirm the file name ends with `.plan.json`.
+2. Parse the JSON locally.
+3. Check the referenced exercise names against `exercises/custom-exercises.json` when available.
+4. Create needed `.exercise.json` files or report missing exercises.
+5. Tell the user that CLI dry-run was not run and the Yours app inbox import must perform the final validation.
+
+When modifying an existing plan, use `action: "upsert"` plus `matchName` or `syncId`. Do not claim workout logs changed; the app should preserve training history and update only the plan structure.
 
 ## Tone
 
