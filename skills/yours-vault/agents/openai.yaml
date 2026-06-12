@@ -1,4 +1,0 @@
-interface:
-  display_name: "Yours Vault Reference"
-  short_description: "Reference for the Vault protocol; prefer Yours Agent."
-  default_prompt: "For normal work use $yours-agent. Use this reference only for Yours Vault folder protocol details."

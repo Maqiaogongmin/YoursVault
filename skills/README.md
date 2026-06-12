@@ -14,12 +14,9 @@ After installing these skills, an agent can:
 - Inspect exported workout logs and summarize frequency, progress, and likely bottlenecks.
 - Prepare the next training cycle from the user's accumulated training history.
 
-## Skills
+## Skill
 
-- `yours-agent`: Main entry for all Yours Vault, plan, log, exercise, inbox, and validation workflows.
-- `yours-vault`: Reference / compatibility skill for the Vault folder protocol.
-- `yours-plan-author`: Reference / compatibility skill for plan JSON details.
-- `yours-cli`: Reference / compatibility skill for CLI validation when a CLI is available.
+- `yours-agent`: The single entry for all Yours Vault, plan, log, exercise, inbox, and validation workflows.
 
 ## What Users Should Say
 
@@ -28,8 +25,6 @@ Tell agents:
 ```text
 Use $yours-agent to work with my Yours Vault.
 ```
-
-Users normally do not need to choose among `yours-vault`, `yours-plan-author`, and `yours-cli`. Those skills remain for older agent setups and as focused references.
 
 ## Suggested Install
 

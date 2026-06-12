@@ -1,4 +1,0 @@
-interface:
-  display_name: "Yours Plan Author Reference"
-  short_description: "Reference for plan JSON and plan writing; prefer Yours Agent."
-  default_prompt: "For normal work use $yours-agent. Use this reference only for detailed Yours plan writing or .plan.json rules."
