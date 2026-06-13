@@ -1,3 +1,3 @@
-58a77dede0f090e90b3e973422224dc73645619fdac1753e2da13a51e11c1aff  artifacts/1.11.1/Yours-android-arm64-v8a-1.11.1.apk
-f515ce977a70797afc6999800e536b44df1447cc5e47a816ce4ce44413a7e000  artifacts/1.11.1/Yours-android-armeabi-v7a-1.11.1.apk
-8b27cbb4215dbd057bb0668684316a0dd3be393e59f91907509511161f267f09  artifacts/1.11.1/Yours-android-x86_64-1.11.1.apk
+e4c90ce546c1f20c134ce0b771194d2ac18956be06182f5e06ea84471fccf9b6  artifacts/1.11.2/Yours-android-arm64-v8a-1.11.2.apk
+35513e5dd314bd8b9e4f6ae53aa4d3d3f21efae3b1d42dd5877ad8c7b9bc4b00  artifacts/1.11.2/Yours-android-armeabi-v7a-1.11.2.apk
+bc7f674542721c99a62494dcad467fb2b59044f6244d59ee9bd81359b0cbbdb4  artifacts/1.11.2/Yours-android-x86_64-1.11.2.apk
