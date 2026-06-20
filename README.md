@@ -54,15 +54,15 @@ Android 版本通过 APK 分发。请优先从 [GitHub Releases](https://github.
 
 大多数近年 Android 手机建议选择：
 
-- `Yours-android-arm64-v8a-1.11.2.apk`
+- `Yours-android-arm64-v8a-1.11.3.apk`
 
 较旧 Android 设备可尝试：
 
-- `Yours-android-armeabi-v7a-1.11.2.apk`
+- `Yours-android-armeabi-v7a-1.11.3.apk`
 
 模拟器或 x86_64 设备可使用：
 
-- `Yours-android-x86_64-1.11.2.apk`
+- `Yours-android-x86_64-1.11.3.apk`
 
 ## Yours Vault
 
