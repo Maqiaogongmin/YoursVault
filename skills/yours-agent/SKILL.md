@@ -26,7 +26,7 @@ agent writes inbox/*.plan.json and inbox/*.exercise.json -> App imports inbox
    - `logs/**/*.workout.json` for training history.
    - `exercises/custom-exercises.json` for the exercise library.
 3. Classify the task:
-   - **Analyze training**: read plans/logs, optionally write Markdown to `reports/` if asked.
+   - **Analyze training**: read plans/logs, separate strength sets from free records, optionally write Markdown to `reports/` if asked.
    - **Create a new plan**: write `inbox/*.plan.json` with `action: "create"` or omit action.
    - **Update an existing plan**: write `inbox/*.plan.json` with `action: "upsert"` plus `syncId` or `matchName`.
    - **Add missing exercises**: write `inbox/*.exercise.json` before or alongside the plan.
@@ -38,8 +38,12 @@ agent writes inbox/*.plan.json and inbox/*.exercise.json -> App imports inbox
 ## Import Rules
 
 - Prefer `actions[].exercise`; the App also accepts legacy `actions[].name`.
+- Actions may use `recordMode: "standard"` or `recordMode: "free"`.
+- Free records still need an `exercise` name and library match. For activities like walking, running, stretching, or sports, add a matching `.exercise.json` when missing.
+- For free records, prefer `durationSeconds` for the target duration. `sets`, `weight`, `restSeconds`, and `note` are allowed; do not treat `reps` as meaningful free-record progress.
 - For existing-plan updates, preserve history: do not claim workout logs changed.
 - If a plan references an exercise not in `exercises/custom-exercises.json`, create a matching `.exercise.json` or report the missing action.
+- Poster generation, poster saving, and share-image workflows are app UI features, not Yours Agent operations.
 - Never write SQLite, Drift files, app containers, or server databases unless the user explicitly asks for low-level repair.
 - Never claim import succeeded unless the Yours App or CLI confirmed it.
 

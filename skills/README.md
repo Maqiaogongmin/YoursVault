@@ -11,7 +11,7 @@ After installing these skills, an agent can:
 - Turn a user's goals, schedule, equipment, and constraints into a readable training plan.
 - Create a matching `.plan.json` file for `Yours Vault/inbox/`.
 - Validate plan and exercise files before import.
-- Inspect exported workout logs and summarize frequency, progress, and likely bottlenecks.
+- Inspect exported workout logs, separating strength sets from free records such as walking, running, stretching, or sports.
 - Prepare the next training cycle from the user's accumulated training history.
 
 ## Skill
@@ -47,7 +47,9 @@ Use your agent's own installation process if it differs.
 - Training weeks can be manually marked complete, but a plan can always be reused.
 - Exercises can use `standard` or `free` record mode:
   - `standard`: sets, reps, weight, rest, and note.
-  - `free`: activity duration, exercise name, and note.
+  - `free`: activity duration, exercise name, optional weight/rest, and note.
+- Free-record activities still need exercise-library matching, but they should not be counted as strength volume.
+- Poster generation and poster saving are Yours app UI features, not skill operations.
 - User-created names and notes must remain as written by the user.
 - Built-in exercises may be displayed in the current app language, but stable identities should not depend on display text.
 
