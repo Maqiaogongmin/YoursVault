@@ -1,0 +1,3 @@
+3c58c5dc18fb9b14631baca322a7651270d6818f33186e11573957ba05657a19  artifacts/1.11.4/Yours-android-arm64-v8a-1.11.4.apk
+eec9806b89b83b3e2d1f5160230d594e737076904edbe97b023aa7bb5ad6cb8d  artifacts/1.11.4/Yours-android-armeabi-v7a-1.11.4.apk
+f1df73efb53cbe34a5e21bff8a1baf6e26d8cd040aafcb30aeeba06a0c1d2860  artifacts/1.11.4/Yours-android-x86_64-1.11.4.apk
