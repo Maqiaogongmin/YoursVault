@@ -24,6 +24,9 @@ YoursVault/
 
 - App import is the final authority for applying inbox files.
 - Server sync is separate from Vault and uses its own protocol.
+- Built-in exercise identity is stable across app languages. Prefer `built_in:*` references when reading or writing built-in plan actions, and do not create duplicate custom exercises just because the exported display language changed.
+- `exercises/custom-exercises.json` can include `remoteId`, `chineseName`, `englishName`, `isCustom`, and related metadata; the app may localize built-in display names in the UI. Preserve user-created names and notes exactly.
+- Built-in exercises may be copied or edited into user-managed custom exercises by the app. Through Vault, agents should prepare custom `.exercise.json` entries only; do not claim to edit the built-in catalog itself.
 - Workout logs can contain standard strength records and free records. Free records use `recordMode: "free"` plus `durationSeconds`; do not count them as strength sets or training volume.
 - Poster generation, poster saving, and share-image workflows are outside this skill. Do not promise to create or save app posters through Vault files.
 - Do not copy private local paths, secrets, API keys, or unrelated app data into generated files.

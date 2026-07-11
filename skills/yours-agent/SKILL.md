@@ -38,11 +38,13 @@ agent writes inbox/*.plan.json and inbox/*.exercise.json -> App imports inbox
 ## Import Rules
 
 - Prefer `actions[].exercise`; the App also accepts legacy `actions[].name`.
+- Prefer stable built-in references for built-in exercises, such as `built_in:bench_press`, instead of locale-specific display names.
+- Match exercises across `built_in:*`, `chineseName`, `englishName`, and legacy localized names before deciding an action is missing.
 - Actions may use `recordMode: "standard"` or `recordMode: "free"`.
 - Free records still need an `exercise` name and library match. For activities like walking, running, stretching, or sports, add a matching `.exercise.json` when missing.
 - For free records, prefer `durationSeconds` for the target duration. `sets`, `weight`, `restSeconds`, and `note` are allowed; do not treat `reps` as meaningful free-record progress.
 - For existing-plan updates, preserve history: do not claim workout logs changed.
-- If a plan references an exercise not in `exercises/custom-exercises.json`, create a matching `.exercise.json` or report the missing action.
+- If a plan references an exercise not in `exercises/custom-exercises.json` and it is not a known `built_in:*` reference, create a matching `.exercise.json` or report the missing action.
 - Poster generation, poster saving, and share-image workflows are app UI features, not Yours Agent operations.
 - Never write SQLite, Drift files, app containers, or server databases unless the user explicitly asks for low-level repair.
 - Never claim import succeeded unless the Yours App or CLI confirmed it.

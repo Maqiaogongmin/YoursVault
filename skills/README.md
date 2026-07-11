@@ -49,6 +49,8 @@ Use your agent's own installation process if it differs.
   - `standard`: sets, reps, weight, rest, and note.
   - `free`: activity duration, exercise name, optional weight/rest, and note.
 - Free-record activities still need exercise-library matching, but they should not be counted as strength volume.
+- Built-in exercises use stable references such as `built_in:bench_press`; display names can vary by app language.
+- Agents should not create duplicate custom exercises just because a built-in exercise appears in Chinese, English, or Japanese.
 - Poster generation and poster saving are Yours app UI features, not skill operations.
 - User-created names and notes must remain as written by the user.
 - Built-in exercises may be displayed in the current app language, but stable identities should not depend on display text.

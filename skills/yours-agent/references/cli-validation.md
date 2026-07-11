@@ -21,10 +21,11 @@ Do not stop at "CLI missing". Perform static checks:
 2. Parse JSON.
 3. Check `.plan.json` / `.exercise.json` extensions.
 4. Compare plan action names with `exercises/custom-exercises.json` when available.
-5. Check `recordMode`: only `standard` and `free` are supported. Free actions should include an `exercise` and usually `durationSeconds`.
-6. Create needed `.exercise.json` files or report missing exercises.
-7. Tell the user that CLI dry-run was not run and the Yours App inbox importer must perform final validation.
+5. Treat known `built_in:*` references as valid even if an older CLI reports them as missing.
+6. Check `recordMode`: only `standard` and `free` are supported. Free actions should include an `exercise` and usually `durationSeconds`.
+7. Create needed `.exercise.json` files or report missing exercises.
+8. Tell the user that CLI dry-run was not run and the Yours App inbox importer must perform final validation.
 
 Development checkouts may expose `tool/yours_cli/yours_cli.py` or `yours-cli`, but do not assume those binaries exist on a user's phone.
 
-Some development CLI builds may lag behind the app's free-record fields. If CLI output drops `recordMode` or `durationSeconds`, keep the JSON aligned with the App importer and say the App is the final authority.
+Some development CLI builds may lag behind the app's free-record fields or built-in exercise references. If CLI output drops `recordMode` or `durationSeconds`, or does not recognize `built_in:*`, keep the JSON aligned with the App importer and say the App is the final authority.

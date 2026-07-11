@@ -20,7 +20,7 @@ Use `YYYY-MM-DD-slug.plan.json` in `inbox/`.
           "name": "Push A",
           "actions": [
             {
-              "exercise": "Barbell Bench Press",
+              "exercise": "built_in:bench_press",
               "recordMode": "standard",
               "sets": 4,
               "reps": "6-8",
@@ -48,6 +48,14 @@ Use `YYYY-MM-DD-slug.plan.json` in `inbox/`.
 - `action`: `create`, `update`, or `upsert`; missing means safe upsert in the App importer.
 - `matchName`: existing plan name to update. Prefer `syncId` if the exported plan provides one.
 - `actions[].exercise`: preferred exercise field. Legacy `actions[].name` is accepted by the App.
+- For built-in exercises, prefer stable references over display names. Current built-in references are:
+  - `built_in:bench_press`
+  - `built_in:deadlift`
+  - `built_in:lateral_raise`
+  - `built_in:barbell_squat`
+  - `built_in:plank`
+- Legacy localized names such as `杠铃卧推`, `Bench Press`, and `ベンチプレス` may resolve to the same built-in reference, but agents should write the stable `built_in:*` form when known.
+- For user-created exercises and free-record activities, use the user's own exercise name unless a matching built-in reference exists.
 - `recordMode`: `standard` for sets/reps/weight; `free` for duration/activity records.
 - Standard actions use `sets`, `reps`, optional `weight`, optional `restSeconds`, and `note`.
 - Free actions still require `exercise`. Use `durationSeconds` for target duration. `sets` can represent repeated free items, usually `1`; `weight` and `restSeconds` are optional. Do not use `reps` as meaningful free-record progress.
@@ -76,6 +84,6 @@ Use `matchName` when renaming an existing exercise.
 - JSON parses.
 - File extension is `.plan.json` or `.exercise.json`.
 - Plan names and exercise names are non-empty.
-- Plan actions use library exercises, or matching `.exercise.json` files exist in `inbox/`.
+- Plan actions use library exercises or known `built_in:*` references, or matching `.exercise.json` files exist in `inbox/`.
 - Free-record activities also need library exercises; create entries for activities such as walking, running, stretching, basketball, or cycling when missing.
 - Existing-plan updates use `action: "upsert"` plus `syncId` or `matchName`.
