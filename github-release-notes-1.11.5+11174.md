@@ -21,6 +21,6 @@
 
 - 大多数 Android 手机：`Yours-android-arm64-v8a-1.11.5+11174.apk`
 - SHA-256：`5f08c016838a823414ebc0f3594eac4f7f10f658a5fc5bdd3dea6dd0bbcf7db2`
-- 对应公开源码 tag：`v1.11.5-public-source.1`
+- 对应公开源码 tag：`v1.11.5-public-source.2`
 
 请优先覆盖安装，不要先卸载旧版，以免被 Android 系统删除本地数据。
