@@ -52,11 +52,11 @@ YoursVault 是有思的公开发布、开放文件协议和 Agent Skills 仓库�
 
 Android 版本通过 APK 分发。请优先从 [GitHub Releases](https://github.com/Maqiaogongmin/YoursVault/releases) 或有思官网下载安装包，并核对 SHA-256 校验值。
 
-当前已验收的 Android 最新构建为 `1.11.5+11174`，提供 arm64-v8a 包。
+当前已验收的 Android 最新构建为 `1.11.6+11176`，提供 arm64-v8a 包。
 
 大多数近年 Android 手机建议选择：
 
-- `Yours-android-arm64-v8a-1.11.5+11174.apk`
+- `Yours-android-arm64-v8a-1.11.6+11176.apk`
 
 以下是较旧的 1.11.5 兼容构建：
 
