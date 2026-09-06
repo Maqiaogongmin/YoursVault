@@ -1,0 +1,42 @@
+name: Publish Yours Agent package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "skills/yours-agent/**"
+      - ".github/workflows/publish-yours-agent.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Package Yours Agent
+        run: |
+          cd skills
+          zip -r "$RUNNER_TEMP/yours-agent.zip" yours-agent \
+            -x "*/.DS_Store" "*/__MACOSX/*"
+
+      - name: Publish rolling prerelease asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view yours-agent-latest >/dev/null 2>&1; then
+            gh release edit yours-agent-latest \
+              --prerelease \
+              --title "Yours Agent Skill" \
+              --notes "Automated package from commit ${GITHUB_SHA}."
+          else
+            gh release create yours-agent-latest \
+              --target "$GITHUB_SHA" \
+              --prerelease \
+              --title "Yours Agent Skill" \
+              --notes "Automated package from commit ${GITHUB_SHA}."
+          fi
+          gh release upload yours-agent-latest "$RUNNER_TEMP/yours-agent.zip" --clobber
