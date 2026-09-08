@@ -15,8 +15,8 @@
 - 训练免责声明。
 - 官网或 App Store 跳转说明。
 
-Flutter / iOS / Android 工程源码只进入主 App 仓库。签名文件、本地配置、
-开发者个人数据、未清理历史文件和构建产物不得进入任何公开仓库。
+Flutter / iOS / Android / HarmonyOS 工程源码只进入主 App 仓库。签名文件、本地配置、
+开发者个人数据和未清理历史文件不得进入公开仓库；正式安装包作为 Release 附件分发。
 
 ## 唯一构建来源
 
@@ -41,7 +41,8 @@ Flutter / iOS / Android 工程源码只进入主 App 仓库。签名文件、本
 - Android release APK 保持在约 20 MB 量级，略超可接受。
 - Android APK 使用稳定 release 签名。
 - iOS archive 来自同一份源码。
-- GitHub 公开发布包保留 arm64-v8a、armeabi-v7a、x86_64 三种 APK；三者必须来自同一份最新源码。
+- Android 按实际支持的 ABI 发布并标注；当前 1.11.6 提供 arm64-v8a。不要将旧版其他 ABI 包标成最新版。
+- HarmonyOS 使用主 App 的 `ohos/` 工程和 Flutter-OH，核对最终 APP 版本、签名与商店状态。
 
 ## 构建产物命名建议
 

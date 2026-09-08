@@ -1,45 +1,19 @@
 # 有思版本号规则
 
-## 版本号格式
+显示版本使用 `主版本.功能版本.修复版本`，构建号独立递增。
 
-有思使用三段式版本号：
+当前源码：`pubspec.yaml` 中 `version: 1.11.6+11176`。
 
-`主版本.功能版本.修复版本`
+| 平台 | 显示版本 | 构建号 |
+| --- | --- | --- |
+| iOS | CFBundleShortVersionString = 1.11.6 | CFBundleVersion = 11176 |
+| Android arm64-v8a | versionName = 1.11.6 | versionCode = 13176 |
+| HarmonyOS | versionName = 1.11.6 | versionCode = 11176 |
 
-示例：
+Android 拆分 ABI 的原生 versionCode 含架构偏移，不等于 Flutter 逻辑构建号；更新清单的 latestBuild 使用逻辑构建号 11176。以后发布应核验实际 APK 元数据与 App 的版本归一化逻辑。
 
-- `1.11.0`
-- `1.11.1`
-- `1.12.0`
-
-## 显示版本
-
-iOS 和 Android 对用户展示的版本号应保持一致。
-
-例如：
-
-- iOS：`CFBundleShortVersionString = 1.11.0`
-- Android：`versionName = 1.11.0`
-- Flutter：`pubspec.yaml` 中当前使用 `version: 1.11.0+11107`
-
-## Android versionCode
-
-Android 的 `versionCode` 必须每次递增。建议规则：
-
-- `1.11.0` -> `11100`
-- `1.11.1` -> `11101`
-- `1.12.0` -> `11200`
-- `2.0.0` -> `20000`
-
-如果同一个显示版本需要多次发包，可以递增末尾数字：
-
-- `1.11.0+11100`
-- `1.11.0+11101`
-- `1.11.0+11107`
-
-## 发布规则
-
-- 任何发给用户安装的包，都必须有明确版本号。
-- 任何新版 Android APK，都必须比旧版 `versionCode` 更高。
-- 不允许把 debug 包发给测试用户。
-- 不允许使用不同签名密钥发布同一个 Android 包名。
+- 同一平台、同一分发架构的新版构建号必须高于旧版。
+- 同一显示版本重发也必须递增构建号，不能替换已发布附件。
+- 构建时传入的版本可能覆盖工程静态配置；以最终安装包为准。
+- 三个平台发布进度可能不同，见[发布状态](release-status.md)。
+- 正式包保持稳定包名与签名，不使用 debug 包替代正式发布。

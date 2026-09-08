@@ -2,7 +2,7 @@
 
 **An open interface between your training data and the AI you choose.**
 
-Yours is a local-first workout tracker for iOS and Android.
+Yours is a local-first workout tracker for iOS, Android, and HarmonyOS.
 
 Yours Vault is the structured data layer that connects the app to backup, import/export, training analysis, and **user-chosen AI tools**.
 
@@ -177,3 +177,11 @@ The data-ownership approach behind Yours Vault was also influenced by the genera
 ## Feedback
 
 Bug reports, suggestions, and technical discussion are welcome through GitHub and the official project channels.
+
+## Release and platform status
+
+The current source version is **1.11.6+11176**. Store availability can differ while updates are reviewed. See the [release status and download checks](https://github.com/Maqiaogongmin/YoursVault/blob/main/release-status.md).
+
+- Android: [official download](https://yours-app.uk/downloads/android), hosted through Cloudflare; [GitHub Releases](https://github.com/Maqiaogongmin/YoursVault/releases) remains the release archive.
+- HarmonyOS: [Huawei AppGallery](https://appgallery.huawei.com/app/detail?id=C6917610190647926263&source=appshare).
+- iPhone: [App Store](https://apps.apple.com/app/id6772104994).

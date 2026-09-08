@@ -2,7 +2,7 @@
 
 ## 下载
 
-请从有思官网或 GitHub Releases 下载最新版 APK。
+请从[官网下载](https://yours-app.uk/downloads/android)或 [GitHub Releases](https://github.com/Maqiaogongmin/YoursVault/releases) 获取最新版 APK。官网下载经 Cloudflare 托管，原始发布包及校验文件保留在 GitHub。
 
 不要从陌生链接、转发文件或不明来源下载安装包。
 
@@ -27,4 +27,4 @@
 
 ## 当前版本
 
-版本：`1.11.6`
+版本：`1.11.6+11176`，架构：`arm64-v8a`。详见[发布状态与校验信息](release-status.md)。
