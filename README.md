@@ -180,7 +180,7 @@ Bug reports, suggestions, and technical discussion are welcome through GitHub an
 
 ## Release and platform status
 
-The current source version is **1.11.6+11176**. Store availability can differ while updates are reviewed. See the [release status and download checks](https://github.com/Maqiaogongmin/YoursVault/blob/main/release-status.md).
+The current source version is **1.11.7+11178**. Store availability can differ while updates are reviewed. See the [release status and download checks](https://github.com/Maqiaogongmin/YoursVault/blob/main/release-status.md).
 
 - Android: [official download](https://yours-app.uk/downloads/android), hosted through Cloudflare; [GitHub Releases](https://github.com/Maqiaogongmin/YoursVault/releases) remains the release archive.
 - HarmonyOS: [Huawei AppGallery](https://appgallery.huawei.com/app/detail?id=C6917610190647926263&source=appshare).
